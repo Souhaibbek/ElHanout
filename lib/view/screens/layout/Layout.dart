@@ -1,4 +1,5 @@
 import 'package:elhanout/logic/controller/layoutcontroller.dart';
+import 'package:elhanout/logic/controller/themecontroller.dart';
 import 'package:elhanout/utils/theme.dart';
 import 'package:elhanout/view/widgets/textutils.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 class LayoutScreen extends StatelessWidget {
   LayoutScreen({Key? key}) : super(key: key);
   final LayoutController controller = Get.find<LayoutController>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +28,7 @@ class LayoutScreen extends StatelessWidget {
             ),
             actions: [
               IconButton(
-                onPressed: () {
-
-                },
+                onPressed: () {},
                 icon: Image.asset(
                   'assets/images/shop.png',
                   color: Get.isDarkMode ? Colors.white : Colors.black,
@@ -36,9 +36,12 @@ class LayoutScreen extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  controller.changeThemeMode();
+                  ThemeController().changesTheme();
                 },
-                icon: Icon(Icons.brightness_6_outlined,color: Get.isDarkMode ? Colors.white : Colors.black,),
+                icon: Icon(
+                  Icons.brightness_6_outlined,
+                  color: Get.isDarkMode ? Colors.white : Colors.black,
+                ),
               ),
             ],
           ),
