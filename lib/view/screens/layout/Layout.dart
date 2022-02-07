@@ -1,4 +1,3 @@
-
 import 'package:elhanout/logic/controller/layoutcontroller.dart';
 import 'package:elhanout/utils/theme.dart';
 import 'package:elhanout/view/widgets/textutils.dart';
@@ -19,20 +18,37 @@ class LayoutScreen extends StatelessWidget {
             backgroundColor: Get.isDarkMode ? darkGreyClr : Colors.white,
             elevation: 0.0,
             centerTitle: true,
-            title: TextUtils(text: controller.titles[controller.currentIndex.value],
-            color: Get.isDarkMode ? pinkClr : mainColor,fontSize: 24,fontWeight: FontWeight.bold,),
+            title: TextUtils(
+              text: controller.titles[controller.currentIndex.value],
+              color: Get.isDarkMode ? pinkClr : mainColor,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
             actions: [
               IconButton(
                 onPressed: () {
+
                 },
-                icon: Image.asset('assets/images/shop.png'),
+                icon: Image.asset(
+                  'assets/images/shop.png',
+                  color: Get.isDarkMode ? Colors.white : Colors.black,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  controller.changeThemeMode();
+                },
+                icon: Icon(Icons.brightness_6_outlined,color: Get.isDarkMode ? Colors.white : Colors.black,),
               ),
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
+            items: controller.items,
+            selectedItemColor: Get.isDarkMode ? pinkClr : mainColor,
+            unselectedItemColor: Get.isDarkMode ? Colors.white : Colors.black,
+            elevation: 0.0,
             type: BottomNavigationBarType.fixed,
             backgroundColor: Get.isDarkMode ? darkGreyClr : Colors.white,
-            items: controller.items,
             currentIndex: controller.currentIndex.value,
             onTap: (index) {
               controller.currentIndex.value = index;

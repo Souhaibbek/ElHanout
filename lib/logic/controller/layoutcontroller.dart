@@ -28,49 +28,36 @@ class LayoutController extends GetxController {
   ].obs;
 
   List<BottomNavigationBarItem> items=[
-    BottomNavigationBarItem(
-      activeIcon: Icon(
-        Icons.home,
-        color: Get.isDarkMode ? pinkClr : mainColor,
-      ),
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.home,
-        color: Get.isDarkMode ? Colors.white : Colors.black,
       ),
       label: '',
     ),
-    BottomNavigationBarItem(
-      activeIcon: Icon(
-        Icons.category,
-        color: Get.isDarkMode ? pinkClr : mainColor,
-      ),
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.category,
-        color: Get.isDarkMode ? Colors.white : Colors.black,
       ),
       label: '',
     ),
-    BottomNavigationBarItem(
-      activeIcon: Icon(
-        Icons.favorite,
-        color: Get.isDarkMode ? pinkClr : mainColor,
-      ),
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.favorite,
-        color: Get.isDarkMode ? Colors.white : Colors.black,
       ),
       label: '',
     ),
-    BottomNavigationBarItem(
-      activeIcon: Icon(
-        Icons.settings,
-        color: Get.isDarkMode ? pinkClr : mainColor,
-      ),
+    const BottomNavigationBarItem(
       icon: Icon(
         Icons.settings,
-        color: Get.isDarkMode ? Colors.white : Colors.black,
       ),
       label: '',
     ),
   ];
+
+
+  void changeThemeMode(){
+    Get.isDarkMode
+        ? Get.changeThemeMode(ThemeMode.light)
+        : Get.changeThemeMode(ThemeMode.dark);
+  }
 }

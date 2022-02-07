@@ -140,6 +140,7 @@ class AuthController extends GetxController {
   }
 
   void googleSignIn() async {
+    await GoogleSignIn().signOut();
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       displayUserName = googleUser!.displayName!;
