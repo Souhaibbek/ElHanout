@@ -57,11 +57,4 @@ class LayoutController extends GetxController {
   ];
 
 
-  void changeThemeMode(){
-
-    Get.isDarkMode
-        ? Get.changeThemeMode(ThemeMode.light)
-        : Get.changeThemeMode(ThemeMode.dark);
-
-  }
 }
